@@ -27,6 +27,8 @@ A Match-Cut is a film editing technique where two shots are smoothly connected b
     <td align="center">
       <img src="assets/bone_spaceship.gif" alt="Bone Spaceship" width="320">
     </td>
+  </tr>
+  <tr>
     <td align="center">
       <img src="assets/highway_iceskating.gif" alt="Highway Iceskating" width="320">
     </td>
