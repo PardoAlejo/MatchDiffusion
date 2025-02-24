@@ -37,8 +37,6 @@ A Match-Cut is a film editing technique where two shots are smoothly connected b
 </div>
 
 
-
-
 <a name="matchcuts"></a>
 
 ## Installation:
