@@ -21,29 +21,17 @@ A Match-Cut is a film editing technique where two shots are smoothly connected b
 
 <table>
   <tr>
-    <td>
-      <video style="width:320px; height:auto; pointer-events: none;" autoplay muted loop playsinline>
-        <source src="assets/flower_fireworks.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <td align="center">
+      <img src="assets/flower_fireworks.gif" alt="Flower Fireworks" width="320">
     </td>
-    <td>
-      <video style="width:320px; height:auto; pointer-events: none;" autoplay muted loop playsinline>
-        <source src="assets/bone_spaceship.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <td align="center">
+      <img src="assets/bone_spaceship.gif" alt="Bone Spaceship" width="320">
     </td>
-    <td>
-      <video style="width:320px; height:auto; pointer-events: none;" autoplay muted loop playsinline>
-        <source src="assets/highway_iceskating.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <td align="center">
+      <img src="assets/highway_iceskating.gif" alt="Highway Iceskating" width="320">
     </td>
-    <td>
-      <video style="width:320px; height:auto; pointer-events: none;" autoplay muted loop playsinline>
-        <source src="assets/waves_ants.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <td align="center">
+      <img src="assets/waves_ants.gif" alt="Waves Ants" width="320">
     </td>
   </tr>
 </table>
