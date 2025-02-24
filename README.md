@@ -22,16 +22,16 @@ A Match-Cut is a film editing technique where two shots are smoothly connected b
 <div align="center">
   <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 1310px; justify-content: center;">
     <div style="flex: none;">
-      <img src="assets/flower_fireworks.gif" alt="Flower Fireworks" width="320" style="display: block;">
+      <img src="assets/flower_fireworks.gif" alt="Flower Fireworks" width="300" style="display: block;">
     </div>
     <div style="flex: none;">
-      <img src="assets/bone_spaceship.gif" alt="Bone Spaceship" width="320" style="display: block;">
+      <img src="assets/bone_spaceship.gif" alt="Bone Spaceship" width="300" style="display: block;">
     </div>
     <div style="flex: none;">
-      <img src="assets/highway_iceskating.gif" alt="Highway Iceskating" width="320" style="display: block;">
+      <img src="assets/highway_iceskating.gif" alt="Highway Iceskating" width="300" style="display: block;">
     </div>
     <div style="flex: none;">
-      <img src="assets/waves_ants.gif" alt="Waves Ants" width="320" style="display: block;">
+      <img src="assets/waves_ants.gif" alt="Waves Ants" width="300" style="display: block;">
     </div>
   </div>
 </div>
