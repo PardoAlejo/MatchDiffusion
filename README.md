@@ -145,4 +145,4 @@ If you find your work useful, please cite us:
 
 ## Acknowledgements
 
-This repo is hihgly inspired on the [Visual Anagrams](https://dangeng.github.io/visual_anagrams/) and [Factorized Diffusion](https://dangeng.github.io/factorized_diffusion/) papers' [repository](https://github.com/dangeng/visual_anagrams/blob/main/readme_factorized_diffusion.md).
+This repo is highly inspired on the [Visual Anagrams](https://dangeng.github.io/visual_anagrams/) and [Factorized Diffusion](https://dangeng.github.io/factorized_diffusion/) papers' [repository](https://github.com/dangeng/visual_anagrams/blob/main/readme_factorized_diffusion.md).
