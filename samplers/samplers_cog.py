@@ -189,7 +189,6 @@ def sample_match_cog(model,
     # Setup timesteps
     if scheduler:
         assert scheduler == 'ddim' or scheduler=='ddpm', "Only DDPM or DDIM scheduler is supported for now"
-        print(f"Sherduler: {scheduler}")
         if scheduler == 'ddpm':
             from diffusers import DDPMScheduler
             scheduler = DDPMScheduler.from_pretrained("THUDM/CogVideoX-5b", subfolder="scheduler")
