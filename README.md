@@ -29,7 +29,7 @@ A Match-Cut is a film editing technique where two shots are smoothly connected b
 
 ## Installation:
 ```
-conda env create -f env.yml
+conda env create -f environment.yml
 conda activate matchdiff
 ```
 Make sure you have a [Hugging Face account](https://huggingface.co/join) and login by running:
