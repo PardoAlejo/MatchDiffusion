@@ -45,9 +45,8 @@ def add_args(parser):
     parser.add_argument("--lambda_schedule", type=str, default='step',
                         help='Type of lambda schedule to use. Options are `step` or `linear_step`')
     
-    parser.add_argument("--scheduler", type=str, default='ddim', help='Specific scheduler to user, by default uses the default scheduler for the model')
-
-
+    parser.add_argument("--model_size", type=str, default='5b', help='Size of the model to use, either 5b or 2b',
+                        choices=['5b', '2b'])
     return parser
 
 

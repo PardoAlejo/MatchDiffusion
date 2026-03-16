@@ -14,12 +14,18 @@ parser = argparse.ArgumentParser()
 parser = add_args(parser)
 args = parser.parse_args()
 
-save_dir = Path(args.save_dir) / args.name
+save_dir = Path(args.save_dir) / f"{args.name}_{args.model_size}"
 save_dir.mkdir(exist_ok=True, parents=True)
 
+print(f"Using model THUDM/CogVideoX-{args.model_size}")
 
-cog_pipeline = CogVideoXPipeline.from_pretrained(
+if args.model_size == '5b':
+    cog_pipeline = CogVideoXPipeline.from_pretrained(
                 "THUDM/CogVideoX-5b", torch_dtype=torch.float16
+                ).to("cuda")
+elif args.model_size == '2b':
+    cog_pipeline = CogVideoXPipeline.from_pretrained(
+                "THUDM/CogVideoX-2b", torch_dtype=torch.float16
                 ).to("cuda")
 
 prompt_embeds = []
@@ -49,7 +55,6 @@ for i in range(args.num_samples):
                            num_joint_steps=args.num_joint_steps,
                            guidance_scale=args.guidance_scale,
                            generator=generator,
-                           scheduler=args.scheduler,
                            initial_lambda_1_1=args.initial_lambda_1_1,
                            final_lambda_1_1=args.final_lambda_1_1,
                            initial_lambda_2_2=args.initial_lambda_2_2,

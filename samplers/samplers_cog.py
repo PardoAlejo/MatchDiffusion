@@ -170,13 +170,12 @@ def sample_match_cog(model,
             initial_lambda_2_2=0.5,
             final_lambda_2_2=1.0,
             lambda_schedule='step',
-            scheduler=None,
             ):
 
     # Params
     num_images_per_prompt = 1
     #device = model.device
-    device = torch.device('cuda')   # Sometimes model device is cpu???
+    device = torch.device('cuda')
     height = height
     width = width
     batch_size = 1      # TODO: Support larger batch sizes, maybe
@@ -186,17 +185,12 @@ def sample_match_cog(model,
     # For CFG
     prompt_embeds = torch.cat([negative_prompt_embeds, positive_prompt_embeds]) # num_prompts*2 x T x C 
 
-    # Setup timesteps
-    if scheduler:
-        assert scheduler == 'ddim' or scheduler=='ddpm', "Only DDPM or DDIM scheduler is supported for now"
-        if scheduler == 'ddpm':
-            from diffusers import DDPMScheduler
-            scheduler = DDPMScheduler.from_pretrained("THUDM/CogVideoX-5b", subfolder="scheduler")
-        elif scheduler == 'ddim':
-            from diffusers import DDIMScheduler
-            scheduler = DDIMScheduler.from_pretrained("THUDM/CogVideoX-5b", subfolder="scheduler")
-        model.scheduler = scheduler
-    
+    from diffusers import DDIMScheduler
+    if 'THUDM/CogVideoX-2b' in model._name_or_path:
+        scheduler = DDIMScheduler.from_pretrained("THUDM/CogVideoX-2b", subfolder="scheduler")
+    elif 'THUDM/CogVideoX-5b' in model._name_or_path:
+        scheduler = DDIMScheduler.from_pretrained("THUDM/CogVideoX-5b", subfolder="scheduler")
+
     model.scheduler.set_timesteps(num_inference_steps, device=device)
     timesteps = model.scheduler.timesteps
 
@@ -231,7 +225,7 @@ def sample_match_cog(model,
         
         # Duplicate inputs for CFG
         # Model input is: [ neg_0, neg_1, ..., pos_0, pos_1, ... ]
-        model_input = torch.cat([latents] * 2) # 4 x 4 x 64 x 64 for SD1.5
+        model_input = torch.cat([latents] * 2)
         model_input = model.scheduler.scale_model_input(model_input, t)
         
         timestep = t.expand(model_input.shape[0])
@@ -248,7 +242,7 @@ def sample_match_cog(model,
             encoder_hidden_states=prompt_embeds,
             image_rotary_emb=image_rotary_emb,
             return_dict=False,
-        )[0] # 4 x 4 x 64 x 64 for SD1.5
+        )[0] 
 
         # Extract uncond (neg) and cond noise estimates
         # noise_pred_uncond, noise_pred_text --> [2, 4, 64, 64], [2, 4, 64, 64]
