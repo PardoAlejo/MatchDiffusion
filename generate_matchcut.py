@@ -14,12 +14,10 @@ parser = argparse.ArgumentParser()
 parser = add_args(parser)
 args = parser.parse_args()
 
-# Do admin stuff
 save_dir = Path(args.save_dir) / args.name
 save_dir.mkdir(exist_ok=True, parents=True)
 
 
-# initialize SD-1.5 pipeline
 cog_pipeline = CogVideoXPipeline.from_pretrained(
                 "THUDM/CogVideoX-5b", torch_dtype=torch.float16
                 ).to("cuda")
@@ -39,14 +37,11 @@ negative_prompt_embeds = torch.cat(negative_prompt_embeds)  # These are just nul
 # Save metadata
 save_metadata(args, save_dir)
 
-# Sample illusions
 for i in range(args.num_samples):
-    # Admin stuff
     generator = torch.manual_seed(args.seed + i)
     sample_dir = save_dir / f'{args.seed + i:04}'
     sample_dir.mkdir(exist_ok=True, parents=True)
 
-    # Sample 64x64 image
     videos = sample_match_cog(cog_pipeline, 
                            prompt_embeds,
                            negative_prompt_embeds,
