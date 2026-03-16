@@ -71,7 +71,7 @@ dependencies:
       - psutil==6.0.0
       - ptyprocess==0.7.0
       - pure-eval==0.2.3
-      - pyav==13.1.0
+      - av==13.1.0
       - pygments==2.18.0
       - pyyaml==6.0.2
       - regex==2024.9.11
